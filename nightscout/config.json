@@ -1,0 +1,53 @@
+{
+  "name": "NightScout",
+  "version": "0.1",
+  "slug": "nightscout",
+  "description": "Nightscout acts as a web-based CGM (Continuous Glucose Montinor) to allow multiple caregivers to remotely view a patients glucose data in realtime.",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "webui": "[PROTO:ssl]://[HOST]:[PORT:5423]",
+  "startup": "services",
+  "boot": "auto",
+  "hassio_api": true,
+  "auth_api": true,
+  "hassio_role": "default",
+  "homeassistant_api": true,
+  "ports": {
+    "5423/tcp": 5423
+  },
+  "ports_description": {
+    "5423/tcp": "NightScout frontend"
+  },
+  "map": ["ssl", "config:rw"],
+  "options": {
+    "ssl": true,
+    "certfile": "fullchain.pem",
+    "keyfile": "privkey.pem",
+    "api_key": "",
+    "plugins": [
+      "careportal",
+      "boluscalc",
+      "food",
+      "bwp",
+      "cage",
+      "sage",
+      "iage",
+      "iob",
+      "cob",
+      "basal",
+      "ar2",
+      "rawbg",
+      "pushover",
+      "bgi",
+      "pump",
+      "openaps"
+    ]
+  },
+  "schema": {
+    "log_level": "list(trace|debug|info|notice|warning|error|fatal)?",
+    "ssl": "bool",
+    "certfile": "str",
+    "keyfile": "str",
+    "api_key": "str",
+    "plugins": ["str"]
+  }
+}
