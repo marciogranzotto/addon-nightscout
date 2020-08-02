@@ -1,0 +1,39 @@
+#!/usr/bin/with-contenv bashio
+# shellcheck disable=SC2191
+# ==============================================================================
+# Home Assistant Add-on: NightScout
+# Runs NightScout
+# ==============================================================================
+declare -a options
+
+# Wait for MongoDB to become available
+service mongodb start
+bashio::net.wait_for 27017
+
+bashio::log.info 'Starting the NightScout server...'
+
+# Config server variables
+readonly api_key=$(bashio::config 'api_key')
+bashio::log.info "Setting up API KEY: ${api_key}"
+
+export API_SECRET="${api_key}"
+export HOSTNAME="127.0.0.1"
+export PORT=1337
+export MONGO_CONNECTION="mongodb://127.0.0.1:27017/admin"
+
+# Enable plugins
+readonly plugins=$(bashio::config 'plugins')
+joined=""
+delim=""
+for item in ${plugins}; do
+    joined="$joined$delim$item"
+    delim=" "
+done
+bashio::log.info "Enable plugins: ${joined}"
+export ENABLE="${joined}"
+
+# Change current working directory
+cd /opt/app || bashio::exit.nok 'Failed changing working directory'
+
+# Run NighScout server
+exec node server.js

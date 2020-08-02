@@ -1,0 +1,18 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Home Assistant Add-on: NightScout
+# Runs the Nginx daemon
+# ==============================================================================
+
+# Wait for NightScout to become available
+bashio::log.info "Nginx waiting for NighScout..."
+bashio::net.wait_for 1337
+
+bashio::log.info "Starting NGINX..."
+if bashio::config.true 'ssl'; then
+    options='/etc/nginx/nginx-ssl.conf'
+else
+    options='/etc/nginx/nginx.conf'
+ fi
+
+exec nginx -c "$options"
