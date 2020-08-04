@@ -34,11 +34,11 @@ The installation of this add-on is pretty straightforward and not different in
 comparison to installing any other Home Assistant add-on.
 
 1. [Add our Hass.io add-ons repository][repository] to your Hass.io instance.
-1. Install the "NighScout" add-on.
+1. Install the "NightScout" add-on.
 1. Change the configuration files with the required values.
-1. Start the "NighScout" add-on
-1. Check the logs of the "NighScout" add-on to see if everything went well.
-1. Click "OPEN WEB UI" to open the NighScout website.
+1. Start the "NightScout" add-on
+1. Check the logs of the "NightScout" add-on to see if everything went well.
+1. Click "OPEN WEB UI" to open the NightScout website.
 1. Log in with your `api_key`.
 
 **NOTE**: Starting the add-on might take a couple of minutes (especially the
@@ -84,7 +84,7 @@ The private key file to use for SSL.
 
 ### Option: `api_key`
 
-The api key that will be used to login and upload data to NighScout.
+The api key that will be used to login and upload data to NightScout.
 
 **Note**: _It has to be at least 12 characters long_
 
@@ -170,7 +170,7 @@ Version 3, 29 June 2007
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [anchore-shield]: https://anchore.io/service/badges/image/67d1185473090e99d5ac5e1bb4d1aa2295117a9bd3d7abbf8cd8a71e331c8388
 [anchore]: https://anchore.io/image/dockerhub/marciogranzotto%2Funifi%3Alatest
-[armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
+[armhf-shield]:  https://img.shields.io/badge/armhf-no-red.svg
 [armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
 [i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
 [buymeacoffee-shield]: https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg

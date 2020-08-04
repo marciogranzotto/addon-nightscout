@@ -35,5 +35,5 @@ export ENABLE="${joined}"
 # Change current working directory
 cd /opt/app || bashio::exit.nok 'Failed changing working directory'
 
-# Run NighScout server
+# Run NightScout server
 exec node server.js

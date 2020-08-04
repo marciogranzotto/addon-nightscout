@@ -21,13 +21,21 @@ RUN \
     && echo "deb ${URL} xenial main" \
         > /etc/apt/sources.list.d/xenial-main.list \
     \
-    && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+    && if [ "${BUILD_ARCH}" = "i386" ]; then \
+        NODEURL="https://deb.nodesource.com/setup_8.x" \
+        && NODEJS="nodejs=8.17.0-1nodesource1"; \
+    else \
+        NODEURL="https://deb.nodesource.com/setup_10.x" \
+        && NODEJS="nodejs=10.22.0-1nodesource1"; \
+    fi \
+    && curl -sL $NODEURL | bash - \
     && apt-get update \
     \
     && apt list -a nodejs npm \
+    && echo "${NODEJS}" \
     && apt-get install -y --no-install-recommends \
-        mongodb \
-        nodejs=10.22.0-1nodesource1 \
+        mongodb-server=1:2.6.10-0ubuntu1 \
+        "${NODEJS}" \
         git \
         webpack \
         build-essential \

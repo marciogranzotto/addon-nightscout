@@ -5,7 +5,7 @@
 # ==============================================================================
 
 # Wait for NightScout to become available
-bashio::log.info "Nginx waiting for NighScout..."
+bashio::log.info "Nginx waiting for NightScout..."
 bashio::net.wait_for 1337
 
 bashio::log.info "Starting NGINX..."
