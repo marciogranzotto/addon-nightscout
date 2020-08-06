@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bashio
 # ==============================================================================
-# Home Assistant Add-on: NightScout
-# Configures NightScout
+# Home Assistant Add-on: Nightscout
+# Configures Nightscout
 # ==============================================================================
 
 readonly api_key=$(bashio::config 'api_key')

@@ -1,5 +1,5 @@
 {
-  "name": "NightScout",
+  "name": "Nightscout",
   "version": "0.1",
   "slug": "nightscout",
   "description": "Nightscout acts as a web-based CGM (Continuous Glucose Montinor) to allow multiple caregivers to remotely view a patients glucose data in realtime.",
@@ -16,7 +16,7 @@
     "5423/tcp": 5423
   },
   "ports_description": {
-    "5423/tcp": "NightScout frontend"
+    "5423/tcp": "Nightscout frontend"
   },
   "map": ["ssl", "config:rw"],
   "options": {

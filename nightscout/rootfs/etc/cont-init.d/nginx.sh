@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bashio
 # ==============================================================================
-# Home Assistant Add-on: NightScout
-# Configures NGINX for use with NightScout
+# Home Assistant Add-on: Nightscout
+# Configures NGINX for use with Nightscout
 # ==============================================================================
 declare certfile
 declare keyfile
