@@ -1,4 +1,4 @@
-# Home Assistant Add-On for NightScout
+# Home Assistant Add-On for Nightscout
 
 [![GitHub Release][releases-shield]][releases]
 ![Project Stage][project-stage-shield]
@@ -22,7 +22,7 @@
 Nightscout acts as a web-based CGM (Continuous Glucose Montinor) to allow multiple caregivers to remotely view a patients glucose data in realtime.
 
 This add-on is a wrapper around [nightscout/cgm-remote-monitor][cgm-remote-monitor].
-Please refere to their documentation for issues releated to NightScout and not this add-on.
+Please refere to their documentation for issues releated to Nightscout and not this add-on.
 
 It includes a Mongo Database which is used to store the uploaded values.
 
@@ -34,11 +34,11 @@ The installation of this add-on is pretty straightforward and not different in
 comparison to installing any other Home Assistant add-on.
 
 1. [Add our Hass.io add-ons repository][repository] to your Hass.io instance.
-1. Install the "NightScout" add-on.
+1. Install the "Nightscout" add-on.
 1. Change the configuration files with the required values.
-1. Start the "NightScout" add-on
-1. Check the logs of the "NightScout" add-on to see if everything went well.
-1. Click "OPEN WEB UI" to open the NightScout website.
+1. Start the "Nightscout" add-on
+1. Check the logs of the "Nightscout" add-on to see if everything went well.
+1. Click "OPEN WEB UI" to open the Nightscout website.
 1. Log in with your `api_key`.
 
 **NOTE**: Starting the add-on might take a couple of minutes (especially the
@@ -67,7 +67,7 @@ plugins:
 
 ### Option: `ssl`
 
-Enables/Disables SSL (HTTPS) on the web interface of NightScout. Set it `true`
+Enables/Disables SSL (HTTPS) on the web interface of Nightscout. Set it `true`
 to enable it, `false` otherwise.
 
 ### Option: `certfile`
@@ -84,7 +84,7 @@ The private key file to use for SSL.
 
 ### Option: `api_key`
 
-The api key that will be used to login and upload data to NightScout.
+The api key that will be used to login and upload data to Nightscout.
 
 **Note**: _It has to be at least 12 characters long_
 
@@ -96,8 +96,8 @@ The default list should be pretty much what you need.
 
 ## Embedding into Home Assistant
 
-It is possible to embed NightScout directly into Home Assistant, allowing you to
-access your NightScout through the Home Assistant frontend.
+It is possible to embed Nightscout directly into Home Assistant, allowing you to
+access your Nightscout through the Home Assistant frontend.
 
 Home Assistant provides the `panel_iframe` integration, for these purposes.
 
@@ -106,7 +106,7 @@ Example configuration:
 ```yaml
 panel_iframe:
   nightscout:
-    title: NightScout
+    title: Nightscout
     icon: mdi:water-alert
     url: https://YOURAPIKEY@address.to.your.hass.io:5423
 ```

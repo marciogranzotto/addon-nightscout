@@ -1,6 +1,6 @@
 #!/usr/bin/execlineb -S0
 # ==============================================================================
-# Home Assistant Add-on: NightScout
+# Home Assistant Add-on: Nightscout
 # Take down the S6 supervision tree when Nginx fails
 # ==============================================================================
 if -n { s6-test $# -ne 0 }

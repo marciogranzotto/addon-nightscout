@@ -1,11 +1,11 @@
 #!/usr/bin/with-contenv bashio
 # ==============================================================================
-# Home Assistant Add-on: NightScout
+# Home Assistant Add-on: Nightscout
 # Runs the Nginx daemon
 # ==============================================================================
 
-# Wait for NightScout to become available
-bashio::log.info "Nginx waiting for NightScout..."
+# Wait for Nightscout to become available
+bashio::log.info "Nginx waiting for Nightscout..."
 bashio::net.wait_for 1337
 
 bashio::log.info "Starting NGINX..."
