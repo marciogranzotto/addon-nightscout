@@ -1,0 +1,14 @@
+name: Docker build and publish
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: hadolint
+        run: docker run --rm -i hadolint/hadolint < nightscout/Dockerfile
+      - name: build docker files
+        run: docker run --rm --privileged	-v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder	-t nightscout	--amd64	--test
