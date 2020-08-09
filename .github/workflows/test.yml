@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v1
       - name: hadolint
         run: docker run --rm -i hadolint/hadolint < nightscout/Dockerfile
       - name: build docker files
