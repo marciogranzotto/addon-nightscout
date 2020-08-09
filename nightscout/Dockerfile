@@ -1,11 +1,11 @@
-ARG BUILD_FROM=hassioaddons/ubuntu-base:5.2.1
+ARG BUILD_FROM
 FROM $BUILD_FROM
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN mkdir -p /opt/app
-ADD . /opt
+COPY . /opt
 WORKDIR /opt/app
 
 ARG BUILD_ARCH=amd64
@@ -36,12 +36,12 @@ RUN \
     && apt-get install -y --no-install-recommends \
         mongodb-server=1:2.6.10-0ubuntu1 \
         "${NODEJS}" \
-        git \
-        webpack \
-        build-essential \
-        python2.7 \
-        nginx \
-        libnginx-mod-http-lua
+        git=1:2.17.1-1ubuntu0.7 \
+        webpack=3.5.6-2 \
+        build-essential=12.4ubuntu1 \
+        python2.7=2.7.17-1~18.04ubuntu1.1 \
+        nginx=1.14.0-0ubuntu1.7 \
+        libnginx-mod-http-lua=1.14.0-0ubuntu1.7
 
 RUN git clone git://github.com/nightscout/cgm-remote-monitor.git /opt/app
 
