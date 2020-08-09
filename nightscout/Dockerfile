@@ -1,4 +1,5 @@
 ARG BUILD_FROM
+# hadolint ignore=DL3006
 FROM $BUILD_FROM
 
 # Set shell
@@ -9,6 +10,7 @@ COPY . /opt
 WORKDIR /opt/app
 
 ARG BUILD_ARCH=amd64
+# hadolint ignore=DL3008
 RUN \
     URL="http://archive.ubuntu.com/ubuntu/" \
     && if [ "${BUILD_ARCH}" = "armv7" ] \
@@ -30,8 +32,6 @@ RUN \
     fi \
     && curl -sL $NODEURL | bash - \
     && apt-get update \
-    \
-    && apt list -a nodejs npm \
     && echo "${NODEJS}" \
     && apt-get install -y --no-install-recommends \
         mongodb-server=1:2.6.10-0ubuntu1 \
@@ -41,7 +41,9 @@ RUN \
         build-essential=12.4ubuntu1 \
         python2.7=2.7.17-1~18.04ubuntu1.1 \
         nginx=1.14.0-0ubuntu1.7 \
-        libnginx-mod-http-lua=1.14.0-0ubuntu1.7
+        libnginx-mod-http-lua=1.14.0-0ubuntu1.7 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN git clone git://github.com/nightscout/cgm-remote-monitor.git /opt/app
 
