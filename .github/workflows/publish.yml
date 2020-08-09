@@ -5,7 +5,7 @@ on:
       types: [published]
 
 jobs:
-  build:
+  build-amd64:
     name: Build and publish amd64 image
     runs-on: ubuntu-latest
     steps:
@@ -20,7 +20,7 @@ jobs:
       - name: publish amd64 docker files
         if: github.event_name != 'pull_request'
         run: docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder	-t nightscout --amd64 --release-tag --docker-user marciogranzotto --docker-password ${{ secrets.DOCKER_PASSWORD }}
-  build:
+  build-armv7:
     name: Build and publish armv7 image
     runs-on: ubuntu-latest
     steps:
@@ -35,9 +35,9 @@ jobs:
       - name: publish armv7 docker files
         if: github.event_name != 'pull_request'
         run: docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder	-t nightscout --armv7 --release-tag --docker-user marciogranzotto --docker-password ${{ secrets.DOCKER_PASSWORD }}
-  build:
-    name: Build and publish
-    runs-on: ubuntu-latest aarch64 image
+  build-aarch64:
+    name: Build and publish aarch64 image
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Patch files
@@ -51,9 +51,9 @@ jobs:
       - name: publish aarch64 docker files
         if: github.event_name != 'pull_request'
         run: docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder	-t nightscout --aarch64 --release-tag --docker-user marciogranzotto --docker-password ${{ secrets.DOCKER_PASSWORD }}
-  build:
-    name: Build and publish
-    runs-on: ubuntu-latest i386 image
+  build-i386:
+    name: Build and publish i386 image
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Patch files
@@ -67,3 +67,10 @@ jobs:
       - name: publish i386 docker files
         if: github.event_name != 'pull_request'
         run: docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder	-t nightscout --i386 --release-tag --docker-user marciogranzotto --docker-password ${{ secrets.DOCKER_PASSWORD }}
+  update-main-repo:
+    needs: [build-amd64, build-armv7, build-aarch64, build-i386]
+    name: Update addons repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: upload
+        run: docker run -it --rm hassioaddons/repository-updater:latest --token ${{ secrets.GITHUB_TOKEN }} --repository marciogranzotto/addons-repository --addon nightscout
