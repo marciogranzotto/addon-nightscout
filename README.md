@@ -33,7 +33,7 @@ It includes a Mongo Database which is used to store the uploaded values.
 The installation of this add-on is pretty straightforward and not different in
 comparison to installing any other Home Assistant add-on.
 
-1. [Add our Hass.io add-ons repository][repository] to your Hass.io instance.
+1. [Add our Home Assistant add-ons repository][repository] to your Hass.io instance.
 1. Install the "Nightscout" add-on.
 1. Change the configuration files with the required values.
 1. Start the "Nightscout" add-on
