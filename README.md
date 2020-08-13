@@ -108,7 +108,7 @@ panel_iframe:
   nightscout:
     title: Nightscout
     icon: mdi:water-alert
-    url: https://YOURAPIKEY@address.to.your.hass.io:5423
+    url: https://address.to.your.hass.io:5423
 ```
 
 **TODO**: Add configuration for sensors
