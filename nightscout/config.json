@@ -18,10 +18,12 @@
   },
   "map": ["ssl", "config:rw"],
   "options": {
+    "log_level": "info",
     "ssl": true,
     "certfile": "fullchain.pem",
     "keyfile": "privkey.pem",
     "api_key": "",
+    "auth_default_roles": "readable",
     "plugins": [
       "careportal",
       "boluscalc",
@@ -47,6 +49,7 @@
     "certfile": "str",
     "keyfile": "str",
     "api_key": "str",
+    "auth_default_roles": "list(readable|denied|status-only)?",
     "plugins": ["str"]
   }
 }
