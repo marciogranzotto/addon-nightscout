@@ -20,6 +20,13 @@ export API_SECRET="${api_key}"
 export HOSTNAME="127.0.0.1"
 export PORT=1337
 export MONGO_CONNECTION="mongodb://127.0.0.1:27017/admin"
+export INSECURE_USE_HTTP=true
+export SECURE_HSTS_HEADER=false
+
+if bashio::config.has_value 'auth_default_roles'; then
+    readonly auth_default_roles=$(bashio::config 'auth_default_roles')
+    export AUTH_DEFAULT_ROLES="${auth_default_roles}"
+fi
 
 # Enable plugins
 readonly plugins=$(bashio::config 'plugins')

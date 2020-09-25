@@ -28,7 +28,7 @@ RUN \
         && NODEJS="nodejs=8.17.0-1nodesource1"; \
     else \
         NODEURL="https://deb.nodesource.com/setup_10.x" \
-        && NODEJS="nodejs=10.22.0-1nodesource1"; \
+        && NODEJS="nodejs=10.22.1-1nodesource1"; \
     fi \
     && curl -sL $NODEURL | bash - \
     && apt-get update \
