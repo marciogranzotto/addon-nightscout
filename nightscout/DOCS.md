@@ -72,7 +72,7 @@ The api key that will be used to login and upload data to Nightscout.
 
 Possible values: `readable` (default), `denied`, `status-only`,  or any valid role name, such as: `admin`, `careportal`, `devicestatus-upload`, and `activity`.
 
-This will set the `AUTH_DEFAULT_ROLES` enviroment variable as described in the [Nightscout documentation](https://github.com/nightscout/cgm-remote-monitor#features)
+This will set the `AUTH_DEFAULT_ROLES` enviroment variable as described in the [Nightscout documentation][nightscout-docs-features]
 
 When `readable`, anyone can view Nightscout without a token. You wont't need the token on the Home Assistant integration.
 
@@ -127,45 +127,7 @@ based on the following:
 -   `MINOR`: Backwards-compatible new features and enhancements.
 -   `PATCH`: Backwards-compatible bugfixes and package updates.
 
-[aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
-
-[amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
-
-[anchore-shield]: https://anchore.io/service/badges/image/67d1185473090e99d5ac5e1bb4d1aa2295117a9bd3d7abbf8cd8a71e331c8388
-
-[anchore]: https://anchore.io/image/dockerhub/marciogranzotto%2Funifi%3Alatest
-
-[armhf-shield]: https://img.shields.io/badge/armhf-no-red.svg
-
-[armv7-shield]: https://img.shields.io/badge/armv7-yes-green.svg
-
-[i386-shield]: https://img.shields.io/badge/i386-yes-green.svg
-
-[buymeacoffee-shield]: https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg
-
-[buymeacoffee]: https://www.buymeacoffee.com/automarcio
-
-[commits-shield]: https://img.shields.io/github/commit-activity/y/marciogranzotto/addon-nightscout.svg
-
-[commits]: https://github.com/marciogranzotto/addon-nightscout/commits/master
-
-[contributors]: https://github.com/marciogranzotto/addon-nightscout/graphs/contributors
-
-[dockerhub]: https://hub.docker.com/r/marciogranzotto/nightscout
-
-[home-assistant]: https://home-assistant.io
-
-[issue]: https://github.com/marciogranzotto/addon-nightscout/issues
-
 [keepchangelog]: http://keepachangelog.com/en/1.0.0/
-
-[license-shield]: https://img.shields.io/github/license/marciogranzotto/addon-nightscout.svg
-
-[maintenance-shield]: https://img.shields.io/maintenance/yes/2020.svg
-
-[project-stage-shield]: https://img.shields.io/badge/project%20stage-experimental-yellow.svg
-
-[releases-shield]: https://img.shields.io/github/release/marciogranzotto/addon-nightscout.svg
 
 [releases]: https://github.com/marciogranzotto/addon-nightscout/releases
 
@@ -173,6 +135,4 @@ based on the following:
 
 [cgm-remote-monitor]: https://github.com/nightscout/cgm-remote-monitor
 
-[marciogranzotto]: https://github.com/marciogranzotto
-
-[docs]: https://github.com/marciogranzotto/addon-nightscout/blob/master/nightscout/DOCS.md
+[nightscout-docs-features]: https://github.com/nightscout/cgm-remote-monitor#features

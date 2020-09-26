@@ -24,7 +24,7 @@ Please refere to their documentation for issues releated to Nightscout and not t
 
 It includes a Mongo Database which is used to store the uploaded values.
 
-![sample image](/images/sample.png)
+![sample image](images/sample.png)
 
 ## Installation
 
@@ -124,4 +124,4 @@ Version 3, 29 June 2007
 
 [marciogranzotto]: https://github.com/marciogranzotto
 
-[docs]: https://github.com/marciogranzotto/addon-nightscout/blob/master/nightscout/DOCS.md
+[docs]: nightscout/DOCS.md
