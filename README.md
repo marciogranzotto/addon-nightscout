@@ -92,6 +92,7 @@ Version 3, 29 June 2007
 
 [buymeacoffee-shield]: https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg
 
+<!-- markdown-link-check-disable-next-line -->
 [buymeacoffee]: https://www.buymeacoffee.com/automarcio
 
 [commits-shield]: https://img.shields.io/github/commit-activity/y/marciogranzotto/addon-nightscout.svg
