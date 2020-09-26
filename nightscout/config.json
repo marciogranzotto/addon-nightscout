@@ -49,7 +49,7 @@
     "certfile": "str",
     "keyfile": "str",
     "api_key": "str",
-    "auth_default_roles": "list(readable|denied|status-only)?",
+    "auth_default_roles": "list(admin|denied|status-only|readable|careportal|devicestatus-upload|activity)?",
     "plugins": ["str"]
   }
 }
