@@ -18,7 +18,8 @@
 	"extensions": [
 		"exiasr.hadolint",
 		"omartawfik.github-actions-vscode",
-		"mrmlnc.vscode-remark"
+		"mrmlnc.vscode-remark",
+		"ms-azuretools.vscode-docker"
 	]
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

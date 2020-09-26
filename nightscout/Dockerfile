@@ -10,6 +10,7 @@ COPY . /opt
 WORKDIR /opt/app
 
 ARG BUILD_ARCH=amd64
+ARG NIGHTSCOUT_VERSION=14.0.4
 # hadolint ignore=DL3008
 RUN \
     URL="http://archive.ubuntu.com/ubuntu/" \
@@ -45,7 +46,7 @@ RUN \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone git://github.com/nightscout/cgm-remote-monitor.git /opt/app
+RUN git clone --depth 1 --branch ${NIGHTSCOUT_VERSION} git://github.com/nightscout/cgm-remote-monitor.git /opt/app
 
 RUN npm install \
     && npm run postinstall \
