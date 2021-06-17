@@ -45,10 +45,10 @@ RUN \
         libnginx-mod-http-lua=1.14.0-0ubuntu1.7 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
-RUN git clone --depth 1 --branch ${NIGHTSCOUT_VERSION} git://github.com/nightscout/cgm-remote-monitor.git /opt/app
-
-RUN npm install \
+    \
+    && git clone --depth 1 --branch ${NIGHTSCOUT_VERSION} git://github.com/nightscout/cgm-remote-monitor.git /opt/app
+    \
+    && npm install \
     && npm run postinstall \
     && npm run env \
     && npm audit fix
