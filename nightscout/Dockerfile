@@ -18,31 +18,31 @@ RUN \
         || [ "${BUILD_ARCH}" = "aarch64" ]; then \
         URL="http://ports.ubuntu.com/ubuntu-ports/"; \
     fi \
-    && echo "deb ${URL} xenial universe" \
-        > /etc/apt/sources.list.d/xenial-universe.list \
+    && echo "deb ${URL} bionic universe" \
+        > /etc/apt/sources.list.d/bionic-universe.list \
     \
-    && echo "deb ${URL} xenial main" \
-        > /etc/apt/sources.list.d/xenial-main.list \
+    && echo "deb ${URL} bionic main" \
+        > /etc/apt/sources.list.d/bionic-main.list \
     \
     && if [ "${BUILD_ARCH}" = "i386" ]; then \
         NODEURL="https://deb.nodesource.com/setup_8.x" \
-        && NODEJS="nodejs=8.17.0-1nodesource1"; \
+        && NODEJS="nodejs"; \
     else \
-        NODEURL="https://deb.nodesource.com/setup_10.x" \
-        && NODEJS="nodejs=10.24.1-1nodesource1"; \
+        NODEURL="https://deb.nodesource.com/setup_14.x" \
+        && NODEJS="nodejs"; \
     fi \
     && curl -sL $NODEURL | bash - \
     && apt-get update \
     && echo "${NODEJS}" \
     && apt-get install -y --no-install-recommends \
-        mongodb-server=1:3.6.3-0ubuntu1.1 \
+        mongodb-server \
         "${NODEJS}" \
-        git=1:2.17.1-1ubuntu0.8 \
-        webpack=3.5.6-2 \
-        build-essential=12.4ubuntu1 \
-        python2.7=2.7.17-1~18.04ubuntu1.6 \
-        nginx=1.14.0-0ubuntu1.7 \
-        libnginx-mod-http-lua=1.14.0-0ubuntu1.7 \
+        git \
+        webpack \
+        build-essential \
+        python2.7 \
+        nginx \
+        libnginx-mod-http-lua \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     \

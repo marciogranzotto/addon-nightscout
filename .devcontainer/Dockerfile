@@ -15,6 +15,7 @@ FROM mcr.microsoft.com/vscode/devcontainers/base:0-${VARIANT}
 #     && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 
-ARG HADOLINT_VERSION=v1.17.6
+ARG HADOLINT_VERSION=v2.5.0
 RUN wget -O /usr/local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/${HADOLINT_VERSION}/hadolint-Linux-x86_64 \
-    && chmod +x /usr/local/bin/hadolint
+    && chmod +x /usr/local/bin/hadolint \
+    && curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash

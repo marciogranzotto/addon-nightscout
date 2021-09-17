@@ -29,7 +29,7 @@ jobs:
           patch-syntax: |
             = /version => "${{ github.run_number }}"
       - name: build amd64 image
-        run: docker run --rm --privileged	-v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder	-t nightscout	--amd64 --test
+        run: docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder -t nightscout --amd64 --test
   build-armv7:
     name: Build armv7 image
     runs-on: ubuntu-latest
@@ -44,7 +44,7 @@ jobs:
           patch-syntax: |
             = /version => "${{ github.run_number }}"
       - name: build armv7 image
-        run: docker run --rm --privileged	-v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder	-t nightscout	--armv7 --test
+        run: docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder -t nightscout --armv7 --test
   build-aarch64:
     name: Build aarch64 image
     runs-on: ubuntu-latest
@@ -59,7 +59,7 @@ jobs:
           patch-syntax: |
             = /version => "${{ github.run_number }}"
       - name: build aarch64 image
-        run: docker run --rm --privileged	-v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder	-t nightscout	--aarch64 --test
+        run: docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder -t nightscout --aarch64 --test
   build-i386:
     name: Build i386 image
     runs-on: ubuntu-latest
@@ -74,4 +74,4 @@ jobs:
           patch-syntax: |
             = /version => "${{ github.run_number }}"
       - name: build i386 image
-        run: docker run --rm --privileged	-v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder	-t nightscout	--i386 --test
+        run: docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder -t nightscout --i386 --test
