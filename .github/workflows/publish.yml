@@ -65,30 +65,8 @@ jobs:
       - name: publish aarch64 docker files
         if: github.event_name != 'pull_request'
         run: docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder	-t nightscout --aarch64 --release-tag --docker-user marciogranzotto --docker-password ${{ secrets.DOCKER_PASSWORD }}
-
-  build-i386:
-    name: Build and publish i386 image
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Get version
-        env:
-          TAG_NAME: ${{ github.event.release.tag_name }}
-        run: echo ::set-env name=VERSION::${TAG_NAME#v}
-      - name: Patch files
-        uses: onlyutkarsh/patch-files-action@v1.0.1
-        with:
-          files: |
-            nightscout/config.json
-          patch-syntax: |
-            = /version => "${{ env.VERSION }}"
-
-      - name: publish i386 docker files
-        if: github.event_name != 'pull_request'
-        run: docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder	-t nightscout --i386 --release-tag --docker-user marciogranzotto --docker-password ${{ secrets.DOCKER_PASSWORD }}
-
   update-main-repo:
-    needs: [build-amd64, build-armv7, build-aarch64, build-i386]
+    needs: [build-amd64, build-armv7, build-aarch64]
     name: Update addons repository
     runs-on: ubuntu-latest
     container:
