@@ -2,7 +2,6 @@
   "args": {},
   "build_from": {
     "aarch64": "ghcr.io/hassio-addons/ubuntu-base/aarch64:6.2.1",
-    "amd64": "ghcr.io/hassio-addons/ubuntu-base/amd64:6.2.1",
-    "armv7": "ghcr.io/hassio-addons/ubuntu-base/armv7:6.2.1"
+    "amd64": "ghcr.io/hassio-addons/ubuntu-base/amd64:6.2.1"
   }
 }

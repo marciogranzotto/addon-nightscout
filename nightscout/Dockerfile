@@ -14,8 +14,7 @@ ARG NIGHTSCOUT_VERSION=14.2.2
 # hadolint ignore=DL3008
 RUN \
     URL="http://archive.ubuntu.com/ubuntu/" \
-    && if [ "${BUILD_ARCH}" = "armv7" ] \
-        || [ "${BUILD_ARCH}" = "aarch64" ]; then \
+    && if [ "${BUILD_ARCH}" = "aarch64" ]; then \
         URL="http://ports.ubuntu.com/ubuntu-ports/"; \
     fi \
     && echo "deb ${URL} bionic universe" \
@@ -24,19 +23,11 @@ RUN \
     && echo "deb ${URL} bionic main" \
         > /etc/apt/sources.list.d/bionic-main.list \
     \
-    && if [ "${BUILD_ARCH}" = "i386" ]; then \
-        NODEURL="https://deb.nodesource.com/setup_8.x" \
-        && NODEJS="nodejs"; \
-    else \
-        NODEURL="https://deb.nodesource.com/setup_14.x" \
-        && NODEJS="nodejs"; \
-    fi \
-    && curl -sL $NODEURL | bash - \
+    && curl -sL "https://deb.nodesource.com/setup_14.x" | bash - \
     && apt-get update \
-    && echo "${NODEJS}" \
     && apt-get install -y --no-install-recommends \
-        mongodb-server \
-        "${NODEJS}" \
+        mongodb-server=1:3.6.3-0ubuntu1.3 \
+        nodejs \
         git \
         webpack \
         build-essential \
