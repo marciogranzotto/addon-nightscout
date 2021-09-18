@@ -10,45 +10,36 @@ COPY . /opt
 WORKDIR /opt/app
 
 ARG BUILD_ARCH=amd64
-ARG NIGHTSCOUT_VERSION=14.0.4
+ARG NIGHTSCOUT_VERSION=14.2.2
 # hadolint ignore=DL3008
 RUN \
     URL="http://archive.ubuntu.com/ubuntu/" \
-    && if [ "${BUILD_ARCH}" = "armv7" ] \
-        || [ "${BUILD_ARCH}" = "aarch64" ]; then \
+    && if [ "${BUILD_ARCH}" = "aarch64" ]; then \
         URL="http://ports.ubuntu.com/ubuntu-ports/"; \
     fi \
-    && echo "deb ${URL} xenial universe" \
-        > /etc/apt/sources.list.d/xenial-universe.list \
+    && echo "deb ${URL} bionic universe" \
+        > /etc/apt/sources.list.d/bionic-universe.list \
     \
-    && echo "deb ${URL} xenial main" \
-        > /etc/apt/sources.list.d/xenial-main.list \
+    && echo "deb ${URL} bionic main" \
+        > /etc/apt/sources.list.d/bionic-main.list \
     \
-    && if [ "${BUILD_ARCH}" = "i386" ]; then \
-        NODEURL="https://deb.nodesource.com/setup_8.x" \
-        && NODEJS="nodejs=8.17.0-1nodesource1"; \
-    else \
-        NODEURL="https://deb.nodesource.com/setup_10.x" \
-        && NODEJS="nodejs=10.22.1-1nodesource1"; \
-    fi \
-    && curl -sL $NODEURL | bash - \
+    && curl -sL "https://deb.nodesource.com/setup_14.x" | bash - \
     && apt-get update \
-    && echo "${NODEJS}" \
     && apt-get install -y --no-install-recommends \
-        mongodb-server=1:2.6.10-0ubuntu1 \
-        "${NODEJS}" \
-        git=1:2.17.1-1ubuntu0.7 \
-        webpack=3.5.6-2 \
-        build-essential=12.4ubuntu1 \
-        python2.7=2.7.17-1~18.04ubuntu1.1 \
-        nginx=1.14.0-0ubuntu1.7 \
-        libnginx-mod-http-lua=1.14.0-0ubuntu1.7 \
+        mongodb-server=1:3.6.3-0ubuntu1.3 \
+        nodejs \
+        git \
+        webpack \
+        build-essential \
+        python2.7 \
+        nginx \
+        libnginx-mod-http-lua \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN git clone --depth 1 --branch ${NIGHTSCOUT_VERSION} git://github.com/nightscout/cgm-remote-monitor.git /opt/app
-
-RUN npm install \
+    && rm -rf /var/lib/apt/lists/* \
+    \
+    && git clone --depth 1 --branch ${NIGHTSCOUT_VERSION} git://github.com/nightscout/cgm-remote-monitor.git /opt/app \
+    \
+    && npm install \
     && npm run postinstall \
     && npm run env \
     && npm audit fix
