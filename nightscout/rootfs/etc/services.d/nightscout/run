@@ -14,7 +14,7 @@ bashio::log.info 'Starting the Nightscout server...'
 
 # Config server variables
 readonly api_key=$(bashio::config 'api_key')
-bashio::log.info "Setting up API KEY: ${api_key}"
+bashio::log.debug "Setting up API KEY: ${api_key}"
 
 export API_SECRET="${api_key}"
 export HOSTNAME="127.0.0.1"
@@ -38,6 +38,20 @@ for item in ${plugins}; do
 done
 bashio::log.info "Enable plugins: ${joined}"
 export ENABLE="${joined}"
+
+# Theme
+if bashio::config.has_value 'theme'; then
+    readonly theme=$(bashio::config 'theme')
+    bashio::log.info "Setting theme to: ${theme}"
+    export THEME="${theme}"
+fi
+
+# Theme
+if bashio::config.has_value 'import_config_url'; then
+    readonly theme=$(bashio::config 'import_config_url')
+    bashio::log.info "Importing config from URL: ${import_config_url}"
+    export IMPORT_CONFIG="${import_config_url}"
+fi
 
 # Change current working directory
 cd /opt/app || bashio::exit.nok 'Failed changing working directory'

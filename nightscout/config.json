@@ -24,6 +24,8 @@
     "keyfile": "privkey.pem",
     "api_key": "",
     "auth_default_roles": "readable",
+    "theme": "colors",
+    "import_config_url": "",
     "plugins": [
       "careportal",
       "boluscalc",
@@ -50,6 +52,8 @@
     "keyfile": "str",
     "api_key": "str",
     "auth_default_roles": "list(admin|denied|status-only|readable|careportal|devicestatus-upload|activity)?",
+    "theme": "list(default|colors|colorblindfriendly)",
+    "import_config_url": "str?",
     "plugins": ["str"]
   }
 }
