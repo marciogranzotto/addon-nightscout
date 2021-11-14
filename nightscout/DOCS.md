@@ -84,6 +84,17 @@ A list of plugins you would like to use.
 You can see the list of available plugins on [nightscout/cgm-remote-monitor][cgm-remote-monitor]
 The default list should be pretty much what you need.
 
+### Option: `theme`
+
+Which default theme nightscout should use.
+The available themes are `default`, `color` and `colorblinfriendly`
+You can check more details on [Nightscout's docs][themes-docs]
+
+### Option: `import_config_url`
+
+If you want to change any other settings that are not exposed on the add-on, you can link a settings json from an URL, such as a gist.
+Please check the docs on how to do that [HERE][import-config-docs]
+
 ## Embedding into Home Assistant
 
 It is possible to embed Nightscout directly into Home Assistant, allowing you to
@@ -136,3 +147,7 @@ based on the following:
 [cgm-remote-monitor]: https://github.com/nightscout/cgm-remote-monitor
 
 [nightscout-docs-features]: https://github.com/nightscout/cgm-remote-monitor#features
+
+[themes-docs]: https://nightscout.github.io/nightscout/setup_variables/#theme-colors
+
+[import-config-docs]: https://nightscout.github.io/nightscout/setup_variables/#import_config
