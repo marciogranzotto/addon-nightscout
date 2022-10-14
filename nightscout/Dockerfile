@@ -67,8 +67,8 @@ LABEL \
     org.opencontainers.image.vendor="Marcio Granzotto" \
     org.opencontainers.image.authors="Marcio Granzotto <oscensores@gmail.com>" \
     org.opencontainers.image.licenses="GNUv3" \
-    org.opencontainers.image.source="https://github.com/marciogranzotto/addon-nightscout" \
-    org.opencontainers.image.documentation="https://github.com/marciogranzotto/addon-nightscout/blob/master/README.md" \
+    org.opencontainers.image.source="https://github.com/loopy321/addon-nightscout" \
+    org.opencontainers.image.documentation="https://github.com/loopy321/addon-nightscout/blob/master/README.md" \
     org.opencontainers.image.created=${BUILD_DATE} \
     org.opencontainers.image.revision=${BUILD_REF} \
     org.opencontainers.image.version=${BUILD_VERSION}
