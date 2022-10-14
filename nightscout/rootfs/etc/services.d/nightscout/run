@@ -48,7 +48,7 @@ fi
 
 # Theme
 if bashio::config.has_value 'import_config_url'; then
-    readonly theme=$(bashio::config 'import_config_url')
+    readonly import_config_url=$(bashio::config 'import_config_url')
     bashio::log.info "Importing config from URL: ${import_config_url}"
     export IMPORT_CONFIG="${import_config_url}"
 fi
