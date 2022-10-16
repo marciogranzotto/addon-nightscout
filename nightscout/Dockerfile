@@ -26,7 +26,7 @@ RUN \
     && curl -sL "https://deb.nodesource.com/setup_14.x" | bash - \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
-        mongodb-server=1:3.6.3-0ubuntu1.4 \
+        mongodb-server \
         nodejs \
         git \
         webpack \
@@ -43,6 +43,8 @@ RUN \
     && npm run postinstall \
     && npm run env \
     && npm audit fix
+
+RUN npm install jsdom 
 
 VOLUME ["/data/db"]
 
