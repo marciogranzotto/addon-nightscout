@@ -26,6 +26,9 @@
     "auth_default_roles": "readable",
     "theme": "colors",
     "import_config_url": "",
+    "bridge_user_name": "",
+    "bridge_user_password": "",
+    "bridge_server": "EU",
     "plugins": [
       "careportal",
       "boluscalc",
@@ -42,7 +45,8 @@
       "pushover",
       "bgi",
       "pump",
-      "openaps"
+      "openaps",
+      "bridge"
     ]
   },
   "schema": {
@@ -54,6 +58,9 @@
     "auth_default_roles": "list(admin|denied|status-only|readable|careportal|devicestatus-upload|activity)?",
     "theme": "list(default|colors|colorblindfriendly)",
     "import_config_url": "str?",
+    "bridge_user_name": "str",
+    "bridge_user_password": "str",
+    "bridge_server": "list(US|EU)",
     "plugins": ["str"]
   }
 }
