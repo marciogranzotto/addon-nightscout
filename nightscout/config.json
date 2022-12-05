@@ -10,11 +10,12 @@
   "boot": "auto",
   "image": "marciogranzotto/image-{arch}-addon-nightscout",
   "hassio_role": "default",
+  "ingress": "true",
   "ports": {
-    "5423/tcp": 5423
+    "80/tcp": null
   },
   "ports_description": {
-    "5423/tcp": "Nightscout frontend"
+    "80/tcp": "Nightscout frontend"
   },
   "map": ["ssl", "config:rw"],
   "options": {
