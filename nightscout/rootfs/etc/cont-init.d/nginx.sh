@@ -3,17 +3,22 @@
 # Home Assistant Add-on: Nightscout
 # Configures NGINX for use with Nightscout
 # ==============================================================================
-declare certfile
-declare keyfile
 
-# Check SSL requirements, if enabled
-bashio::config.require.ssl
+# Generate Ingress configuration
+bashio::var.json \
+    interface "$(bashio::addon.ip_address)" \
+    | tempio \
+        -template /etc/nginx/templates/ingress.gtpl \
+        -out /etc/nginx/servers/ingress.conf
 
-# Enable SSL
-if bashio::config.true 'ssl'; then
-    certfile=$(bashio::config 'certfile')
-    keyfile=$(bashio::config 'keyfile')
-
-    sed -i "s/%%certfile%%/${certfile}/g" /etc/nginx/nginx-ssl.conf
-    sed -i "s/%%keyfile%%/${keyfile}/g" /etc/nginx/nginx-ssl.conf
+# Generate direct access configuration, if enabled.
+if bashio::var.has_value "$(bashio::addon.port 80)"; then
+    bashio::config.require.ssl
+    bashio::var.json \
+        certfile "$(bashio::config 'certfile')" \
+        keyfile "$(bashio::config 'keyfile')" \
+        ssl "^$(bashio::config 'ssl')" \
+        | tempio \
+            -template /etc/nginx/templates/direct.gtpl \
+            -out /etc/nginx/servers/direct.conf
 fi
