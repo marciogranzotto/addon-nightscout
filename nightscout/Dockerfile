@@ -42,8 +42,7 @@ RUN \
     && npm install \
     && npm install jsdom \
     && npm run postinstall \
-    && npm run env \
-    && npm audit fix
+    && npm run env
 
 VOLUME ["/data/db"]
 
