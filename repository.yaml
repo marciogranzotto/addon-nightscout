@@ -1,0 +1,4 @@
+# https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
+name: BenoitAnastay dev add-on repository
+url: "https://github.com/BenoitAnastay/addon-nightscout"
+maintainer: Benoit Anastay <45088785+BenoitAnastay@users.noreply.github.com>
