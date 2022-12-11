@@ -31,8 +31,14 @@ server {
         sub_filter 'href="/' 'href="$http_x_ingress_path/';
         sub_filter '<script src="/' '<script src="$http_x_ingress_path/';
         sub_filter "top.location.href='" "top.location.href='$http_x_ingress_path";
+        sub_filter 'ajax("/' 'ajax("$http_x_ingress_path/';
+        sub_filter 'url:"/' 'url:"$http_x_ingress_path/';
         sub_filter '/api/v1' '$http_x_ingress_path/api/v1';
         sub_filter '/api/v2' '$http_x_ingress_path/api/v2';
+        sub_filter '/translations/' '$http_x_ingress_path/translations/';
+        sub_filter '"socket.io/' '"$http_x_ingress_path/socket.io/';
+        sub_filter '"/socket.io"' '"$http_x_ingress_path/socket.io"';
+        sub_filter "'/sw.js'" "'$http_x_ingress_path/sw.js'";
 
         sub_filter_once off;
     }
