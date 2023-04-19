@@ -15,11 +15,15 @@ bashio::log.info 'Starting the Nightscout server...'
 # Config server variables
 readonly api_key=$(bashio::config 'api_key')
 bashio::log.debug "Setting up API KEY: ${api_key}"
+readonly mongodb_uri=$(bashio::config 'mongodb_uri')
+bashio::log.debug "Setting up MONGODB_URI: ${mongodb_uri}"
+
 
 export API_SECRET="${api_key}"
 export HOSTNAME="127.0.0.1"
 export PORT=1337
-export MONGO_CONNECTION="mongodb://127.0.0.1:27017/admin"
+#export MONGO_CONNECTION="mongodb://127.0.0.1:27017/admin"
+export MONGODB_URI="${mongodb_uri}"
 export INSECURE_USE_HTTP=true
 export SECURE_HSTS_HEADER=false
 
@@ -48,13 +52,15 @@ fi
 
 # Theme
 if bashio::config.has_value 'import_config_url'; then
-    readonly theme=$(bashio::config 'import_config_url')
+    readonly import_config_url=$(bashio::config 'import_config_url')
     bashio::log.info "Importing config from URL: ${import_config_url}"
     export IMPORT_CONFIG="${import_config_url}"
 fi
 
 # Change current working directory
 cd /opt/app || bashio::exit.nok 'Failed changing working directory'
+
+npm install
 
 # Run Nightscout server
 exec node server.js

@@ -10,7 +10,7 @@ COPY . /opt
 WORKDIR /opt/app
 
 ARG BUILD_ARCH=amd64
-ARG NIGHTSCOUT_VERSION=14.2.2
+ARG NIGHTSCOUT_VERSION=14.2.6
 # hadolint ignore=DL3008
 RUN \
     URL="http://archive.ubuntu.com/ubuntu/" \
@@ -26,7 +26,7 @@ RUN \
     && curl -sL "https://deb.nodesource.com/setup_14.x" | bash - \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
-        mongodb-server=1:3.6.3-0ubuntu1.4 \
+        mongodb-server \
         nodejs \
         git \
         webpack \
@@ -37,12 +37,14 @@ RUN \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     \
-    && git clone --depth 1 --branch ${NIGHTSCOUT_VERSION} git://github.com/nightscout/cgm-remote-monitor.git /opt/app \
+    && git clone --depth 1 --branch ${NIGHTSCOUT_VERSION} https://github.com/nightscout/cgm-remote-monitor.git /opt/app \
     \
     && npm install \
     && npm run postinstall \
     && npm run env \
     && npm audit fix
+
+RUN npm install jsdom@21.1.1
 
 VOLUME ["/data/db"]
 
