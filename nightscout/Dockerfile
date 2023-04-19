@@ -44,7 +44,7 @@ RUN \
     && npm run env \
     && npm audit fix
 
-RUN npm install jsdom 
+RUN npm install jsdom@21.1.1
 
 VOLUME ["/data/db"]
 
