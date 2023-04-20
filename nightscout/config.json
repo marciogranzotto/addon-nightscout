@@ -9,7 +9,6 @@
   "startup": "services",
   "init": "false",
   "boot": "auto",
-  "image": "marciogranzotto/image-{arch}-addon-nightscout",
   "hassio_role": "default",
   "ports": {
     "5423/tcp": 5423

@@ -7,7 +7,6 @@
 declare -a options
 
 # Wait for MongoDB to become available
-service mongodb start
 bashio::net.wait_for 27017
 
 bashio::log.info 'Starting the Nightscout server...'
