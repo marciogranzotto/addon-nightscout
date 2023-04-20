@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Home Assistant Add-on: Nightscout
+# Runs MongoDB
+# ==============================================================================
+
+bashio::log.info "Starting MongoDB..."
+
+# Set the data directory and bind IP address
+export MONGODB_DBPATH="/var/lib/mongodb"
+export MONGODB_BIND_IP="127.0.0.1"
+
+# Start MongoDB with the specified options
+exec s6-setuidgid mongodb /usr/bin/mongod --dbpath "$MONGODB_DBPATH" --bind_ip "$MONGODB_BIND_IP"

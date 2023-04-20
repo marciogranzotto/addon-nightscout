@@ -1,0 +1,10 @@
+#!/usr/bin/with-contenv bash
+# ==============================================================================
+# Gracefully stop MongoDB
+# ==============================================================================
+
+# Send the SIGTERM signal to MongoDB to allow it to perform a graceful shutdown
+pkill -SIGTERM mongod
+
+# Wait for MongoDB to shut down
+timeout 30 sh -c 'until [ "$(pgrep mongod)" = "" ]; do sleep 1; done'
