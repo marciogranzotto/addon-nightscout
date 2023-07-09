@@ -13,6 +13,8 @@
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
 
+[![Buy me a coffee][buymeacoffee-shield]][buymeacoffee]
+
 ## About
 
 Nightscout acts as a web-based CGM (Continuous Glucose Montinor) to allow multiple caregivers to remotely view a patients glucose data in realtime.
@@ -41,6 +43,9 @@ comparison to installing any other Home Assistant add-on.
 
 **NOTE**: Starting the add-on might take a couple of minutes (especially the
 first time starting the add-on).
+
+**NOTE**: Do not add this repository to Home Assistant, please use:
+`https://github.com/marciogranzotto/addons-repository`.
 
 ## Support
 
@@ -85,33 +90,36 @@ Version 3, 29 June 2007
 
 [i386-shield]: https://img.shields.io/badge/i386-no-red.svg
 
+[buymeacoffee-shield]: https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg
+
 <!-- markdown-link-check-disable-next-line -->
+[buymeacoffee]: https://www.buymeacoffee.com/automarcio
 
-[commits-shield]: https://img.shields.io/github/commit-activity/y/BenoitAnastay/addon-nightscout.svg
+[commits-shield]: https://img.shields.io/github/commit-activity/y/marciogranzotto/addon-nightscout.svg
 
-[commits]: https://github.com/BenoitAnastay/addon-nightscout/commits/master
+[commits]: https://github.com/marciogranzotto/addon-nightscout/commits/master
 
-[contributors]: https://github.com/BenoitAnastay/addon-nightscout/graphs/contributors
+[contributors]: https://github.com/marciogranzotto/addon-nightscout/graphs/contributors
 
-[dockerhub]: https://hub.docker.com/r/benoitanastay/addon-nightscout
+[dockerhub]: https://hub.docker.com/r/marciogranzotto/nightscout
 
 [home-assistant]: https://home-assistant.io
 
-[issue]: https://github.com/BenoitAnastay/addon-nightscout/issues
+[issue]: https://github.com/marciogranzotto/addon-nightscout/issues
 
 [keepchangelog]: http://keepachangelog.com/en/1.0.0/
 
-[license-shield]: https://img.shields.io/github/license/BenoitAnastay/addon-nightscout.svg
+[license-shield]: https://img.shields.io/github/license/marciogranzotto/addon-nightscout.svg
 
-[maintenance-shield]: https://img.shields.io/maintenance/yes/2022.svg
+[maintenance-shield]: https://img.shields.io/maintenance/yes/2020.svg
 
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-experimental-yellow.svg
 
-[releases-shield]: https://img.shields.io/github/release/BenoitAnastay/addon-nightscout.svg
+[releases-shield]: https://img.shields.io/github/release/marciogranzotto/addon-nightscout.svg
 
-[releases]: https://github.com/BenoitAnastay/addon-nightscout/releases
+[releases]: https://github.com/marciogranzotto/addon-nightscout/releases
 
-[repository]: https://github.com/BenoitAnastay/addons-repository
+[repository]: https://github.com/marciogranzotto/addons-repository
 
 [cgm-remote-monitor]: https://github.com/nightscout/cgm-remote-monitor
 
