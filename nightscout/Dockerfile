@@ -40,9 +40,9 @@ RUN \
     && git clone --depth 1 --branch ${NIGHTSCOUT_VERSION} https://github.com/nightscout/cgm-remote-monitor.git /opt/app \
     \
     && npm install \
-    && npm install jsdom \
     && npm run postinstall \
-    && npm run env
+    && npm run env \
+    && npm audit fix
 
 RUN npm install jsdom@21.1.1
 
