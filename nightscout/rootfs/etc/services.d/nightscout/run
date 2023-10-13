@@ -42,6 +42,16 @@ done
 bashio::log.info "Enable plugins: ${joined}"
 export ENABLE="${joined}"
 
+# Set bridge
+if bashio::config.has_value 'bridge_user_name'; then
+    readonly bridge_user_name=$(bashio::config 'bridge_user_name')
+    readonly bridge_password=$(bashio::config 'bridge_password')
+    readonly bridge_server=$(bashio::config 'bridge_server')
+    export BRIDGE_USER_NAME="${bridge_user_name}"
+    export BRIDGE_PASSWORD="${bridge_password}"
+    export BRIDGE_SERVER="${bridge_server}"
+fi
+
 # Theme
 if bashio::config.has_value 'theme'; then
     readonly theme=$(bashio::config 'theme')
