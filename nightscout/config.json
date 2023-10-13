@@ -19,7 +19,7 @@
   "map": ["ssl", "config:rw"],
   "options": {
     "log_level": "info",
-    "ssl": false,
+    "ssl": true,
     "certfile": "fullchain.pem",
     "keyfile": "privkey.pem",
     "api_key": "",
