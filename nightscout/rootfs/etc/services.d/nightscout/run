@@ -25,7 +25,7 @@ export PORT=1337
 export MONGODB_URI="${mongodb_uri}"
 export INSECURE_USE_HTTP=true
 export SECURE_HSTS_HEADER=false
-export CONNECT_SOURCE="${linkup}"
+export CONNECT_SOURCE="${connect_source}"
 export CONNECT_LINK_UP_USERNAME="${connect_link_up_username}"
 export CONNECT_LINK_UP_PASSWORD="${connect_link_up_password}"
 
