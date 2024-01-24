@@ -28,6 +28,9 @@
     "auth_default_roles": "readable",
     "theme": "colors",
     "import_config_url": "",
+    "connect_source": "linkup",
+    "connect_link_up_username": "",
+    "connect_link_up_password": "",
     "plugins": [
       "careportal",
       "boluscalc",
