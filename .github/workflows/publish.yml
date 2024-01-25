@@ -23,7 +23,7 @@ jobs:
             = /version => "${{ env.VERSION }}"
       - name: publish amd64 docker files
         if: github.event_name != 'pull_request'
-        run: docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder	-t nightscout --amd64 --release-tag --docker-user marciogranzotto --docker-password ${{ secrets.DOCKER_PASSWORD }}
+        run: docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder	-t nightscout --amd64 --release-tag --docker-user ihlcz --docker-password ${{ secrets.DOCKER_PASSWORD }}
 
   build-aarch64:
     name: Build and publish aarch64 image
@@ -44,7 +44,7 @@ jobs:
 
       - name: publish aarch64 docker files
         if: github.event_name != 'pull_request'
-        run: docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder	-t nightscout --aarch64 --release-tag --docker-user marciogranzotto --docker-password ${{ secrets.DOCKER_PASSWORD }}
+        run: docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v ~/.docker:/root/.docker -v "$(pwd)":/data homeassistant/amd64-builder	-t nightscout --aarch64 --release-tag --docker-user ihlcz --docker-password ${{ secrets.DOCKER_PASSWORD }}
   update-main-repo:
     needs: [build-amd64, build-aarch64]
     name: Update addons repository
