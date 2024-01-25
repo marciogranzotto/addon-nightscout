@@ -53,4 +53,4 @@ jobs:
       image: hassioaddons/repository-updater:latest
     steps:
       - name: upload
-        run: repository-updater --token ${{ secrets.GIT_TOKEN }} --repository marciogranzotto/addons-repository --addon nightscout
+        run: repository-updater --token ${{ secrets.GIT_TOKEN }} --repository i-cz/addons-repository --addon nightscout
