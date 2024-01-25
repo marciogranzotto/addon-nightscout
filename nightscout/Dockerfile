@@ -10,7 +10,7 @@ COPY . /opt
 WORKDIR /opt/app
 
 ARG BUILD_ARCH=amd64
-ARG NIGHTSCOUT_VERSION=14.2.6
+ARG NIGHTSCOUT_VERSION=15.0.2
 # hadolint ignore=DL3008
 RUN \
     URL="http://archive.ubuntu.com/ubuntu/" \
